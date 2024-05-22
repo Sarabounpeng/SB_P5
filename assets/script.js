@@ -18,52 +18,44 @@ const slides = [
 ]
 //JavaScript
 let slidesno = 0;
-document.addEventListener("DOMContentLoaded",function updateBanner() {
+
+
+
 	//récupérer les éléments des flèches
 
 		var image = document.querySelector('.banner-img');
-		console.log(image.src)
-
+		var tagLine = document.querySelector('.banner-tagline');
+		var banner = document.querySelector('.banner');
 		var arrowLeft = document.querySelector('.arrow-left');
 		var arrowRight = document.querySelector('.arrow-right');
-
+		var dots = document.querySelectorAll('.dot')
+	
 // Ajouter des écouteurs d'événements aux flèches
 
-		arrowLeft.addEventListener('click', function() {
+		arrowLeft.addEventListener('click', function gauche(){
 			slidesno = (slidesno -1 + slides.length) % slides.length;
-			updateBanner ();
+	      updateBanner ();
+	}); 
+		arrowRight.addEventListener('click',function droite(){
+			slidesno = (slidesno +1 ) % slides.length;
+				updateBanner ();
+		});
 
-	// Code à exécuter lors du clic sur la flèche gauche
-		console.log('Flèche gauche cliquée!');
-		console.log(slides[slidesno]["image"]);
-		//image.src="./assets/images/slideshow/"+slides[2]["image"]
-		image.src="./assets/images/slideshow/"+slides[slidesno]["image"]
-		slidesno = (slidesno -1 + slides.length) % slides.length;
-			updateBanner ();
+  
+
+	function updateBanner(){
+		dots.forEach(function(dot){ 
+			dot.classList.remove('dot_selected');
+		});
 		
+		image.src="./assets/images/slideshow/"+slides[slidesno]["image"];
+		tagLine.innerHTML=slides[slidesno]["tagLine"];
+		document.querySelector('.slide'+slidesno).classList.add('dot_selected');
+	}
 
-	// Ajoutez ici le code pour gérer le clic sur la flèche gauche
-	});
-	arrowRight.addEventListener('click', function() {
-		slidesno = (slidesno + 1) % slides.length;
-			updateBanner ();
-		
-	// Code à exécuter lors du clic sur la flèche droite
 
-		console.log('Flèche droite cliquée!');
 
-	// Ajoutez ici le code pour gérer le clic sur la flèche droite
-	 });
-	 var banner = document.querySelector('.banner');
-	 console.log(slides[slidesno]["image"]);
-		image.src="./assets/images/slideshow/"+slides[slidesno]["image"]
-
-		
-		
-		
-
-	 
-});
+	
 
 	 /*banner.forEach(function(banner, index) {
 		// Créer un bullet point pour chaque banner

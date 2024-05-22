@@ -123,13 +123,16 @@ header {
 }
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */
-#banner .arrow {
+#banner .banner-arrow {
 	position: absolute;
+width: 20px;
+top: calc(50% - 10px);
+cursor: pointer;
 }
-#banner .arrow_left {
+#banner .arrow-left {
 	left: 10px;
 }
-#banner .arrow_right {
+#banner .arrow-right {
 	right: 10px;
 }
 /* Gestion des points du carrousel */
@@ -139,7 +142,7 @@ header {
 	display: flex;
 }
 .dot {
-	margin-inline: 5px;
+	display: inline-block;
 	width: 13px;
 	height: 13px;
 	background-color: #ffffff00;
@@ -160,7 +163,7 @@ header {
 	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 	text-align: center;
 }
-#banner span {
+#banner p span {
 	display: block;
 	font-weight: 400;
 	font-size: 30px;
