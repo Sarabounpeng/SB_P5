@@ -19,7 +19,22 @@ const slides = [
 //JavaScript
 let slidesno = 0;
 
+let parentElement = document.getElementById("dots");
 
+for(i=0;i<slides.length;i++) {
+	console.log (i)
+
+	//<span class="dot slide0"></span>
+	let nouvelElement = document.createElement("span");
+	nouvelElement.classList.add('dot')
+	nouvelElement.classList.add('slide'+i)
+	nouvelElement.id='slide'+i;
+	nouvelElement.addEventListener('click',function() {
+		slidesno =this.id.replace('slide','') ;
+	      updateBanner ();
+	 } )
+	parentElement.appendChild(nouvelElement);
+}
 
 	//récupérer les éléments des flèches
 
