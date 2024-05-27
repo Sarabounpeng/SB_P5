@@ -43,7 +43,7 @@ for(i=0;i<slides.length;i++) {
 		var banner = document.querySelector('.banner');
 		var arrowLeft = document.querySelector('.arrow-left');
 		var arrowRight = document.querySelector('.arrow-right');
-		var dots = document.querySelectorAll('.dot')
+		var dots = document.querySelectorAll('.dot');
 	
 // Ajouter des écouteurs d'événements aux flèches
 
